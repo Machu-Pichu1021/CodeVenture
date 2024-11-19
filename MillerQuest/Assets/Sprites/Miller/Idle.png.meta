@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 263728fb5232a944487c74b54d90342e
+guid: bea30f699bdf8fe4f8070f53dd4c4810
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -33,7 +33,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -131,8 +131,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7410e6ca5a660a94e9069abe8701c8dd
-      internalID: 1235605920
+      spriteID: 5700f4f9df75b604bb5f10f79f4e71a6
+      internalID: -286813182
       vertices: []
       indices: 
       edges: []
@@ -152,8 +152,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0a7276a422beac24b857b40abb4708e3
-      internalID: -1394204058
+      spriteID: 9ca3521d61b80744296c66914c281897
+      internalID: -31772395
       vertices: []
       indices: 
       edges: []
@@ -173,8 +173,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 93c1b8e3e10cece4c8c9fca47dc01fc8
-      internalID: -1225070144
+      spriteID: 2ad187cd6ec5a0f4da31b011f4d73b47
+      internalID: -1378598078
       vertices: []
       indices: 
       edges: []
@@ -194,8 +194,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a4ff9291f7ca3024b9a27b817a19d8a7
-      internalID: 1525278781
+      spriteID: 9120bd2132b995e4c863196876202bb7
+      internalID: 1554081757
       vertices: []
       indices: 
       edges: []
@@ -215,8 +215,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cfadc24c94eec8b449d80953107bd7ad
-      internalID: 732012624
+      spriteID: d693eb292df5e7849b207199fd5623d5
+      internalID: -1521360591
       vertices: []
       indices: 
       edges: []
@@ -232,11 +232,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Idle_0: 1235605920
-      Idle_1: -1394204058
-      Idle_2: -1225070144
-      Idle_3: 1525278781
-      Idle_4: 732012624
+      Idle_0: -286813182
+      Idle_1: -31772395
+      Idle_2: -1378598078
+      Idle_3: 1554081757
+      Idle_4: -1521360591
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
