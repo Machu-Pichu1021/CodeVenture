@@ -9,7 +9,6 @@ public class Player : MonoBehaviour
     private Rigidbody2D rb;
     private BoxCollider2D collider;
 
-
     //Movement variables
     private float horizontalInput;
     private KeyCode lastMoveKeyPressed;
@@ -18,7 +17,7 @@ public class Player : MonoBehaviour
 
     //Jump stuff
     private const float gravityScale = 3;
-    [SerializeField] private float jumpStrength = 12;
+    [SerializeField] private float jumpStrength = 12f;
     [SerializeField] private int maxJumps = 2;
     private int jumpsRemaining;
     [SerializeField] private Transform groundCheckpoint;
@@ -26,6 +25,9 @@ public class Player : MonoBehaviour
     [SerializeField] private Transform wallCheckpoint;
 
     private const float scale = 5;
+
+    //Animation
+    private Animator animator;
 
     private void Awake()
     {
@@ -39,6 +41,7 @@ public class Player : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         collider = GetComponent<BoxCollider2D>();
+        animator = GetComponent<Animator>();
     }
 
     void Update()
@@ -90,6 +93,10 @@ public class Player : MonoBehaviour
             jumpsRemaining--;
         }
 
+        //Update Animator Variables
+        animator.SetFloat("xSpeed", Mathf.Abs(velocityX));
+        animator.SetBool("Grounded", isOnGround);
+
         //Update Velocity
         rb.velocity = new Vector2(velocityX, velocityY);
     }
@@ -122,7 +129,7 @@ public class Player : MonoBehaviour
     private float CalculateVelocityY(float velocityX, bool isOnGround, bool isOnWall)
     {
         velocityX = Mathf.Abs(velocityX);
-        return isOnGround ? (isOnWall ? jumpStrength : velocityX > 5 ? (jumpStrength * (velocityX / 10)) : jumpStrength * .5f) : jumpStrength;
+        return isOnGround ? (isOnWall ? jumpStrength : velocityX > 5 ? (jumpStrength * (velocityX / 10)) : jumpStrength / 2f) : jumpStrength;
     }
 
     private bool IsOnGround()
