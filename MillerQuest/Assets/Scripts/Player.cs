@@ -4,10 +4,17 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    public static Player instance;
+
     private Rigidbody2D rb;
     private BoxCollider2D collider;
 
-    [SerializeField] private float speed = 5f;
+
+    //Movement variables
+    private float horizontalInput;
+    private KeyCode lastMoveKeyPressed;
+    private float timeRunning;
+    [SerializeField] private float moveSpeed = 12.5f;
 
     //Jump stuff
     private const float gravityScale = 3;
@@ -19,6 +26,14 @@ public class Player : MonoBehaviour
     [SerializeField] private Transform wallCheckpoint;
 
     private const float scale = 5;
+
+    private void Awake()
+    {
+        if (instance == null)
+            instance = this;
+        else
+            Destroy(gameObject);
+    }
 
     private void Start()
     {
@@ -35,15 +50,19 @@ public class Player : MonoBehaviour
         bool isOnGround = IsOnGround();
 
         //Moving
-        float horizontalInput = Input.GetAxisRaw("Horizontal");
-        float velocityX = rb.velocity.x;
-        if (isOnGround)
-            velocityX = horizontalInput * speed;
-       
+        horizontalInput = Input.GetAxis("Horizontal");
+        float velocityX = CalculateVelocityX(isOnGround, isOnWall);
+        if (Input.GetKey(KeyCode.A))
+            lastMoveKeyPressed = KeyCode.A;
+        else if (Input.GetKey(KeyCode.D))
+            lastMoveKeyPressed = KeyCode.D;
+        else
+            lastMoveKeyPressed = KeyCode.None;
 
-        if (velocityX < 0)
+
+        if (horizontalInput < 0)
             transform.localScale = new Vector3(-scale, scale, scale);
-        else if (velocityX > 0)
+        else if (horizontalInput > 0)
             transform.localScale = Vector3.one * scale;
 
         //Jumping
@@ -57,22 +76,53 @@ public class Player : MonoBehaviour
             rb.gravityScale = gravityScale / 10;
         else
             rb.gravityScale = gravityScale;
+
         if ((Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)) && jumpsRemaining > 0)
         {
-            print("Jumping");
-            velocityY = jumpStrength;
+            velocityY = CalculateVelocityY(velocityX, isOnGround, isOnWall);
             if (isOnWall)
             {
                 if (horizontalInput < 0)
-                    velocityX = speed * .75f;
+                    velocityX = moveSpeed * .75f;
                 else if (horizontalInput > 0)
-                    velocityX = speed * -.75f;
+                    velocityX = moveSpeed * -.75f;
             }
             jumpsRemaining--;
         }
 
         //Update Velocity
         rb.velocity = new Vector2(velocityX, velocityY);
+    }
+
+    private float CalculateVelocityX(bool isOnGround, bool isOnWall)
+    {
+        if (PressedKeyChanged() && isOnGround)
+        {
+            timeRunning = 0;
+            return moveSpeed * horizontalInput;
+        }
+        else if (isOnGround)
+        {
+            timeRunning += Time.deltaTime;
+            if (horizontalInput == 0 || isOnWall)
+                timeRunning = 0;
+            float velocity = timeRunning * moveSpeed * horizontalInput;
+            velocity = Mathf.Clamp(velocity, -moveSpeed, moveSpeed);
+            return velocity;
+        }
+        else
+            return rb.velocity.x;
+    }
+
+    private bool PressedKeyChanged()
+    {
+        return (lastMoveKeyPressed == KeyCode.D && Input.GetKey(KeyCode.A)) || (lastMoveKeyPressed == KeyCode.A && Input.GetKey(KeyCode.D));
+    }
+
+    private float CalculateVelocityY(float velocityX, bool isOnGround, bool isOnWall)
+    {
+        velocityX = Mathf.Abs(velocityX);
+        return isOnGround ? (isOnWall ? jumpStrength : velocityX > 5 ? (jumpStrength * (velocityX / 10)) : jumpStrength * .5f) : jumpStrength;
     }
 
     private bool IsOnGround()
