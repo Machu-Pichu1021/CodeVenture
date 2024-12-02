@@ -10,4 +10,9 @@ public class PrintLine : CodeBlock
     {
         OutputHandler.instance.AddOutput(argument + "\n");
     }
+
+    public void UpdateArgument(string input)
+    {
+        argument = input;
+    }
 }
