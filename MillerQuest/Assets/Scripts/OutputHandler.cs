@@ -10,6 +10,7 @@ public class OutputHandler : MonoBehaviour
     [SerializeField] private TMP_Text outputText;
 
     private string output;
+    public string Output { get => output; private set => output = value; }
 
     private void Awake()
     {

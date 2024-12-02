@@ -5,18 +5,29 @@ using UnityEngine;
 
 public class Executer : MonoBehaviour
 {
-    private CodeBlock[] blocks;
+    [SerializeField] private int lineNumber = 0;
 
-    [SerializeField] private int lineNumber;
+    private PuzzleObject currentPuzzle;
 
     private void Start()
     {
-        blocks = FindObjectsByType<CodeBlock>(FindObjectsSortMode.None);
-        Array.Sort(blocks, (block1, block2) => block1.lineNumber.CompareTo(block2.lineNumber));
+        currentPuzzle = FindObjectOfType<PuzzleObject>();
+        if (currentPuzzle == null)
+        {
+            Debug.LogError("No puzzle could be found, returning to main menu...");
+            SceneLoader.instance.LoadScene(0);
+        }
+        else if (FindObjectsByType<PuzzleObject>(FindObjectsSortMode.None).Length > 1)
+        {
+            Debug.LogError("More than one puzzle found, returning to main menu...");
+            SceneLoader.instance.LoadScene(0);
+        }
+
     }
 
     public void Run()
     {
+        gameObject.SetActive(true);
         StartCoroutine(Execute());
     }
 
@@ -27,11 +38,12 @@ public class Executer : MonoBehaviour
 
     private IEnumerator Execute()
     {
-        blocks[lineNumber].Execute();
+        transform.position = new Vector3(-4.6f, currentPuzzle.Slots[lineNumber].transform.position.y, 0);
+        currentPuzzle.Slots[lineNumber].Block.Execute();
         yield return new WaitForSeconds(1f);
         lineNumber++;
 
-        if (lineNumber < blocks.Length)
+        if (lineNumber < currentPuzzle.Slots.Length)
             StartCoroutine(Execute());
         else
             OnEnd();
@@ -39,6 +51,15 @@ public class Executer : MonoBehaviour
 
     private void OnEnd()
     {
-        //Check if the output is equal to the expected output
+        gameObject.SetActive(false);
+        lineNumber = 0;
+        if (currentPuzzle.checkSolution(OutputHandler.instance.Output))
+        {
+            //Display win screen
+        }
+        else
+        {
+            //Display x or whatever
+        }
     }
 }
