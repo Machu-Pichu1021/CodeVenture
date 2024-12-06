@@ -15,7 +15,7 @@ public class PuzzleObject : MonoBehaviour
 
     [SerializeField] private GameObject[] blocks;
 
-    [SerializeField] private string expectedOutput;
+    [SerializeField] [TextArea] private string expectedOutput;
 
     private void Start()
     {
@@ -40,7 +40,9 @@ public class PuzzleObject : MonoBehaviour
         for (int i = 0; i < numLines; i++)
         {
             GameObject slot = Instantiate(slotPrefab, new Vector3(0, yPos, 0), Quaternion.identity);
-            slots[i] = slot.GetComponent<Slot>();
+            Slot s = slot.GetComponent<Slot>();
+            slots[i] = s;
+            s.SetLineNumberText($"{i + 1}");
             yPos -= slotYDecrement;
         }
 

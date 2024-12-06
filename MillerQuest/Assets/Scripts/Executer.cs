@@ -9,6 +9,8 @@ public class Executer : MonoBehaviour
 
     private PuzzleObject currentPuzzle;
 
+    private const float xPos = -4.65f;
+
     private void Start()
     {
         currentPuzzle = FindObjectOfType<PuzzleObject>();
@@ -28,6 +30,7 @@ public class Executer : MonoBehaviour
     public void Run()
     {
         gameObject.SetActive(true);
+        OutputHandler.instance.ClearOutput();
         StartCoroutine(Execute());
     }
 
@@ -38,7 +41,7 @@ public class Executer : MonoBehaviour
 
     private IEnumerator Execute()
     {
-        transform.position = new Vector3(-4.6f, currentPuzzle.Slots[lineNumber].transform.position.y, 0);
+        transform.position = new Vector3(xPos, currentPuzzle.Slots[lineNumber].transform.position.y);
         currentPuzzle.Slots[lineNumber].Block.Execute();
         yield return new WaitForSeconds(1f);
         lineNumber++;
@@ -55,11 +58,11 @@ public class Executer : MonoBehaviour
         lineNumber = 0;
         if (currentPuzzle.checkSolution(OutputHandler.instance.Output))
         {
-            //Display win screen
+            print("Puzzle solved");
         }
         else
         {
-            //Display x or whatever
+            print("You're stupid");
         }
     }
 }

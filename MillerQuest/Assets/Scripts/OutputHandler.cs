@@ -9,7 +9,7 @@ public class OutputHandler : MonoBehaviour
 
     [SerializeField] private TMP_Text outputText;
 
-    private string output;
+    [SerializeField] [TextArea] private string output;
     public string Output { get => output; private set => output = value; }
 
     private void Awake()
@@ -29,5 +29,11 @@ public class OutputHandler : MonoBehaviour
     private void UpdateOutput()
     {
         outputText.text = output;
+    }
+
+    public void ClearOutput()
+    {
+        output = "";
+        UpdateOutput();
     }
 }

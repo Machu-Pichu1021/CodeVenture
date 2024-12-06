@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3887350534696909847}
   - component: {fileID: 3887350534696909846}
   m_Layer: 0
-  m_Name: Line Number
+  m_Name: Line Number Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -219,6 +219,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d657800cfebaf6447b99ae1f7495b4f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lineNumberText: {fileID: 3887350534696909846}
 --- !u!61 &-5408123838318319467
 BoxCollider2D:
   m_ObjectHideFlags: 0

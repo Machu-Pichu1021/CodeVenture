@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class Slot : MonoBehaviour
 {
     private CodeBlock block;
     public CodeBlock Block { get => block; private set => block = value; }
+
+    [SerializeField] private TMP_Text lineNumberText;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -44,5 +47,10 @@ public class Slot : MonoBehaviour
                 this.block = null;
             }
         }
+    }
+
+    public void SetLineNumberText(string lineNumber)
+    {
+        lineNumberText.text = lineNumber;
     }
 }
