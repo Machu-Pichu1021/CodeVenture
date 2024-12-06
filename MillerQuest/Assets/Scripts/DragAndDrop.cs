@@ -5,7 +5,10 @@ using UnityEngine;
 public class DragAndDrop : MonoBehaviour
 {
     private Vector3 startPos;
-    [SerializeField] private Vector3 validLocationPos;
+    private Vector3 validLocationPos;
+    private Vector3 scale;
+
+    private readonly Vector3 scaleModifier = Vector3.one * 1.1f;
 
     private void Start()
     {
@@ -13,28 +16,26 @@ public class DragAndDrop : MonoBehaviour
         validLocationPos = startPos;
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    public void SetValidLocation(Vector3 location)
     {
-        if (collision.CompareTag("Valid"))
-            validLocationPos = collision.transform.position;
-        print(validLocationPos);
+        validLocationPos = location;
     }
 
-    private void OnTriggerExit2D(Collider2D collision)
+    public void SetScale(Vector3 _scale)
     {
-        if (collision.CompareTag("Valid"))
-            validLocationPos = startPos;
-        print(validLocationPos);
+        scale = _scale;
     }
 
     private void OnMouseDrag()
     {
         Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         transform.position = new Vector3(mouseWorldPos.x, mouseWorldPos.y);
+        transform.localScale = scaleModifier;
     }
 
     private void OnMouseUp()
     {
         transform.position = validLocationPos;
+        transform.localScale = scale;
     }
 }

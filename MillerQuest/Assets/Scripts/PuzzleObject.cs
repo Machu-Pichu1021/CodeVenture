@@ -13,6 +13,8 @@ public class PuzzleObject : MonoBehaviour
     private const float slotStartY = 3.5f;
     private const float slotYDecrement = 1.5f;
 
+    [SerializeField] private GameObject[] blocks;
+
     [SerializeField] private string expectedOutput;
 
     private void Start()
@@ -40,6 +42,12 @@ public class PuzzleObject : MonoBehaviour
             GameObject slot = Instantiate(slotPrefab, new Vector3(0, yPos, 0), Quaternion.identity);
             slots[i] = slot.GetComponent<Slot>();
             yPos -= slotYDecrement;
+        }
+
+        foreach (GameObject block in blocks)
+        {
+            GameObject b = Instantiate(block);
+            Storage.instance.AddBlock(b);
         }
     }
 
