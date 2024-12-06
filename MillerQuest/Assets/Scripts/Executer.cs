@@ -31,6 +31,7 @@ public class Executer : MonoBehaviour
     {
         gameObject.SetActive(true);
         OutputHandler.instance.ClearOutput();
+        OutputHandler.instance.ChangeTextColor(Color.white);
         StartCoroutine(Execute());
     }
 
@@ -42,7 +43,11 @@ public class Executer : MonoBehaviour
     private IEnumerator Execute()
     {
         transform.position = new Vector3(xPos, currentPuzzle.Slots[lineNumber].transform.position.y);
-        currentPuzzle.Slots[lineNumber].Block.Execute();
+        if (currentPuzzle.Slots[lineNumber].Block != null)
+            currentPuzzle.Slots[lineNumber].Block.Execute();
+        else
+            LogError($"Error Code 0: No Code Block Found. Line: {lineNumber}");
+
         yield return new WaitForSeconds(1f);
         lineNumber++;
 
@@ -50,6 +55,13 @@ public class Executer : MonoBehaviour
             StartCoroutine(Execute());
         else
             OnEnd();
+    }
+
+    private void LogError(string errorMessage)
+    {
+        OutputHandler.instance.ClearOutput();
+        OutputHandler.instance.ChangeTextColor(Color.red);
+        OutputHandler.instance.AddOutput(errorMessage);
     }
 
     private void OnEnd()

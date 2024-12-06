@@ -988,6 +988,14 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8767837073710022086, guid: 9b970b477a91bfa489ca0dee1beb297f, type: 3}
+      propertyPath: expectedOutput
+      value: 'sigma
+
+        balls
+
+'
+      objectReference: {fileID: 0}
+    - target: {fileID: 8767837073710022086, guid: 9b970b477a91bfa489ca0dee1beb297f, type: 3}
       propertyPath: blocks.Array.size
       value: 2
       objectReference: {fileID: 0}
@@ -1343,6 +1351,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   outputText: {fileID: 1893225964}
+  output: 
 --- !u!1 &1913366906
 GameObject:
   m_ObjectHideFlags: 0

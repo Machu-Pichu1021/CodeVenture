@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8767837073710022085}
   - component: {fileID: 8767837073710022086}
   m_Layer: 0
-  m_Name: Test Puzzle
+  m_Name: Puzzle 1-1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44,12 +44,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c23b3a34bf0b814088c9fb88b0400b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numLines: 2
+  numLines: 1
   blocks:
   - {fileID: 2762014538294697896, guid: bcfc37b566074644aaf17d4d203a246d, type: 3}
-  - {fileID: 2762014538294697896, guid: bcfc37b566074644aaf17d4d203a246d, type: 3}
-  expectedOutput: 'sigma
-
-    balls
+  expectedOutput: 'Hello, World!
 
 '

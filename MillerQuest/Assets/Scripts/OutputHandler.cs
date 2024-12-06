@@ -36,4 +36,9 @@ public class OutputHandler : MonoBehaviour
         output = "";
         UpdateOutput();
     }
+
+    public void ChangeTextColor(Color color)
+    {
+        outputText.color = color;
+    }
 }
