@@ -49,6 +49,16 @@ public class Slot : MonoBehaviour
         }
     }
 
+    public void HideLineNumber()
+    {
+        lineNumberText.gameObject.SetActive(false);
+    }
+
+    public void ShowLineNumber()
+    {
+        lineNumberText.gameObject.SetActive(true);
+    }
+
     public void SetLineNumberText(string lineNumber)
     {
         lineNumberText.text = lineNumber;

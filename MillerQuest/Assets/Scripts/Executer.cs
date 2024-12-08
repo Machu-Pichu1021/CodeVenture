@@ -47,7 +47,12 @@ public class Executer : MonoBehaviour
     {
         transform.position = new Vector3(xPos, currentPuzzle.Slots[lineNumber].transform.position.y);
         if (currentPuzzle.Slots[lineNumber].Block != null)
+        {
+            if (lineNumber != 0)
+                currentPuzzle.Slots[lineNumber - 1].ShowLineNumber();
+            currentPuzzle.Slots[lineNumber].HideLineNumber();
             currentPuzzle.Slots[lineNumber].Block.Execute();
+        }
         else
             LogError($"Error Code 0: No Code Block Found. Line: {lineNumber}");
 
@@ -70,6 +75,7 @@ public class Executer : MonoBehaviour
 
     private void OnEnd()
     {
+        currentPuzzle.Slots[lineNumber - 1].ShowLineNumber();
         gameObject.SetActive(false);
         lineNumber = 0;
         if (currentPuzzle.checkSolution(OutputHandler.instance.Output))
