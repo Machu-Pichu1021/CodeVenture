@@ -17,4 +17,24 @@ public class UIManager : MonoBehaviour
         Array.ForEach(UIs, ui => ui.SetActive(false));
         UIs[index].SetActive(true);
     }
+
+    public void NextUI()
+    {
+        int activeIndex = Array.IndexOf(UIs, Array.Find(UIs, ui => ui.activeInHierarchy));
+        if (activeIndex != UIs.Length - 1)
+        {
+            Array.ForEach(UIs, ui => ui.SetActive(false));
+            UIs[activeIndex + 1].SetActive(true);
+        }
+    }
+
+    public void PreviousUI()
+    {
+        int activeIndex = Array.IndexOf(UIs, Array.Find(UIs, ui => ui.activeInHierarchy));
+        if (activeIndex != 0)
+        {
+            Array.ForEach(UIs, ui => ui.SetActive(false));
+            UIs[activeIndex - 1].SetActive(true);
+        }
+    }
 }

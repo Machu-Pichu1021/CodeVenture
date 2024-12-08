@@ -13,7 +13,7 @@ public class CoolTitleEffect : MonoBehaviour
         for (int i = 0; i < letters.Length; i++)
         {
             GameObject letter = letters[i];
-            letter.transform.localPosition = new Vector3(letter.transform.localPosition.x, Mathf.Sin(timeActive - i) * 50);
+            letter.transform.localPosition = new Vector3(letter.transform.localPosition.x, Mathf.Sin(timeActive * 1.5f - i) * 50);
         }
     }
 }

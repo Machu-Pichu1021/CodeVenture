@@ -22,7 +22,7 @@ public class PuzzleObject : MonoBehaviour
         DontDestroyOnLoad(gameObject);
         slotPrefab = Resources.Load<GameObject>("Prefabs/Slot Prefab");
         //Delete later
-        LoadPuzzle();
+        //LoadPuzzle();
     }
 
     private void OnLevelWasLoaded(int level)
