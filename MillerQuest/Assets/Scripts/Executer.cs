@@ -11,6 +11,9 @@ public class Executer : MonoBehaviour
 
     private const float xPos = -4.65f;
 
+    [SerializeField] private AudioClip winSFX;
+    [SerializeField] private AudioClip errorSFX;
+
     private void Start()
     {
         currentPuzzle = FindObjectOfType<PuzzleObject>();
@@ -59,6 +62,7 @@ public class Executer : MonoBehaviour
 
     private void LogError(string errorMessage)
     {
+        AudioManager.instance.PlaySFX(errorSFX);
         OutputHandler.instance.ClearOutput();
         OutputHandler.instance.ChangeTextColor(Color.red);
         OutputHandler.instance.AddOutput(errorMessage);
@@ -71,6 +75,8 @@ public class Executer : MonoBehaviour
         if (currentPuzzle.checkSolution(OutputHandler.instance.Output))
         {
             print("Puzzle solved");
+            MusicManager.instance.Stop();
+            AudioManager.instance.PlaySFX(winSFX);
         }
         else
         {

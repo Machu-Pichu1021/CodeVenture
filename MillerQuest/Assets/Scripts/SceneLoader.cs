@@ -13,7 +13,15 @@ public class SceneLoader : MonoBehaviour
             instance = this;
         else
             Destroy(gameObject);
-        DontDestroyOnLoad(gameObject);
+    }
+
+    //Delete Later
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            SceneLoader.instance.LoadScene(0);
+        }
     }
 
     public void LoadScene(int buildIndex)

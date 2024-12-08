@@ -44,14 +44,11 @@ public class Storage : MonoBehaviour
     {
         if (collision.TryGetComponent(out CodeBlock block))
         {
-            foreach (GameObject b in blocks)
+            GameObject b = blocks.Find(b => b.GetComponent<CodeBlock>() == block);
+            if (b != null)
             {
-                if (b.GetComponent<CodeBlock>() == block)
-                {
-                    blocks.Remove(b);
-                    ArrangeBlocks();
-                    break;
-                }
+                blocks.Remove(b);
+                ArrangeBlocks();
             }
         }
     }

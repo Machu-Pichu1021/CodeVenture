@@ -389,7 +389,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 132ff7316e2da5c4383932231fb87c82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  validLocationPos: {x: 0, y: 0, z: 0}
+  pickupSFX: {fileID: 8300000, guid: 3cca6332df8e41c4e83a870c4481ce33, type: 3}
+  putdownSFX: {fileID: 8300000, guid: 6407a4dccc6661b418045710ec0963a5, type: 3}
 --- !u!61 &774484536755082683
 BoxCollider2D:
   m_ObjectHideFlags: 0
