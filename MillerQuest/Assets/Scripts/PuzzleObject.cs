@@ -1,9 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PuzzleObject : MonoBehaviour
 {
+    [SerializeField] private string puzzleName;
+    [SerializeField] [TextArea] private string puzzleDescription;
+    [SerializeField] private Sprite puzzleImage;
+
     [SerializeField] private int numLines;
     public int NumLines { get => numLines; private set => numLines = value; }
 
@@ -22,7 +27,7 @@ public class PuzzleObject : MonoBehaviour
         DontDestroyOnLoad(gameObject);
         slotPrefab = Resources.Load<GameObject>("Prefabs/Slot Prefab");
         //Delete later
-        LoadPuzzle();
+        //LoadPuzzle();
     }
 
     private void OnLevelWasLoaded(int level)
@@ -51,6 +56,8 @@ public class PuzzleObject : MonoBehaviour
             GameObject b = Instantiate(block);
             Storage.instance.AddBlock(b);
         }
+
+        FindObjectOfType<PuzzleDescription>().GetPuzzleData(puzzleName, puzzleDescription, puzzleImage);
     }
 
     public bool checkSolution(string solution)

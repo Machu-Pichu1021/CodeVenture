@@ -44,6 +44,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c23b3a34bf0b814088c9fb88b0400b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  puzzleName: 'Level 1-1: Aloha, Earth!'
+  puzzleDescription: 'Welcome to the first level! Let''s start simple. The printline()
+    block is used to display output in the console. It will immediately jump the
+    cursor to the next line upon finishing. Use the printline() block to print out
+    the following: Hello, World!'
+  puzzleImage: {fileID: 21300000, guid: a2f3fd96619ddaa44b18261a9fbe56c8, type: 3}
   numLines: 1
   blocks:
   - {fileID: 2762014538294697896, guid: bcfc37b566074644aaf17d4d203a246d, type: 3}

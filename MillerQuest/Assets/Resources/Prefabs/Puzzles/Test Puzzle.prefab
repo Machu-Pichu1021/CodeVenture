@@ -44,6 +44,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c23b3a34bf0b814088c9fb88b0400b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  puzzleName: Test Puzzle
+  puzzleDescription: Hahaha funny test
+  puzzleImage: {fileID: 0}
   numLines: 2
   blocks:
   - {fileID: 2762014538294697896, guid: bcfc37b566074644aaf17d4d203a246d, type: 3}
