@@ -15,11 +15,11 @@ public class ErrorLogger : MonoBehaviour
             Destroy(gameObject);
     }
 
-    public void LogError(string errorMessage, int lineNumber)
+    public void LogError(string errorMessage)
     {
         AudioManager.instance.PlaySFX(errorSFX);
         OutputHandler.instance.ClearOutput();
         OutputHandler.instance.ChangeTextColor(Color.red);
-        OutputHandler.instance.AddOutput(errorMessage + " Line Number: " + lineNumber);
+        OutputHandler.instance.AddOutput(errorMessage + " Line Number: " + Executer.LineNumber);
     }
 }

@@ -8,7 +8,17 @@ public class PrintLine : CodeBlock
     
     public override void Execute()
     {
-        OutputHandler.instance.AddOutput(argument + "\n");
+        //Add variable checking later
+        if (argument[0] == '"' && argument[argument.Length - 1] == '"')
+        {
+            string output = argument[1..(argument.Length - 1)];
+            OutputHandler.instance.AddOutput(output + "\n");
+        }
+        else
+        {
+            ErrorLogger.instance.LogError("Error Code 1: Cannot Resolve Symbol '" + argument + "'.");
+        }
+
     }
 
     public void UpdateArgument(string input)

@@ -48,7 +48,7 @@ MonoBehaviour:
   puzzleDescription: 'Welcome to the first level! Let''s start simple. The printline()
     block is used to display output in the console. It will immediately jump the
     cursor to the next line upon finishing. Use the printline() block to print out
-    the following: Hello, World!'
+    the following: Hello, World! Don''t forget to use quotation marks!'
   puzzleImage: {fileID: 21300000, guid: a2f3fd96619ddaa44b18261a9fbe56c8, type: 3}
   numLines: 1
   blocks:

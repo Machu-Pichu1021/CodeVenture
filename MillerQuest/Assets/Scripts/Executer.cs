@@ -5,7 +5,8 @@ using UnityEngine;
 
 public class Executer : MonoBehaviour
 {
-    [SerializeField] private int lineNumber = 0;
+    [SerializeField] private static int lineNumber = 0;
+    public static int LineNumber { get => lineNumber; private set => lineNumber = value; }
 
     private PuzzleObject currentPuzzle;
 
@@ -60,7 +61,7 @@ public class Executer : MonoBehaviour
         else
         {
             HaltControl();
-            ErrorLogger.instance.LogError("Error Code 0: No Code Block Found.", lineNumber);
+            ErrorLogger.instance.LogError("Error Code 0: No Code Block Found.");
             lineNumber = 0;
         }
 
