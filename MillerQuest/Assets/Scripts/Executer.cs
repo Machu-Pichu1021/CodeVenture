@@ -14,6 +14,9 @@ public class Executer : MonoBehaviour
     [SerializeField] private AudioClip winSFX;
     [SerializeField] private AudioClip errorSFX;
 
+    [SerializeField] GameObject winScreen;
+    [SerializeField] GameObject loseScreen;
+
     private void Start()
     {
         currentPuzzle = FindObjectOfType<PuzzleObject>();
@@ -80,13 +83,13 @@ public class Executer : MonoBehaviour
         lineNumber = 0;
         if (currentPuzzle.checkSolution(OutputHandler.instance.Output))
         {
-            print("Puzzle solved");
             MusicManager.instance.Stop();
             AudioManager.instance.PlaySFX(winSFX);
+            winScreen.SetActive(true);
         }
         else
         {
-            print("You're stupid");
+            loseScreen.SetActive(true);
         }
     }
 }
