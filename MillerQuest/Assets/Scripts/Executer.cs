@@ -12,7 +12,6 @@ public class Executer : MonoBehaviour
     private const float xPos = -4.65f;
 
     [SerializeField] private AudioClip winSFX;
-    [SerializeField] private AudioClip errorSFX;
 
     [SerializeField] GameObject winScreen;
     [SerializeField] GameObject loseScreen;
@@ -43,6 +42,8 @@ public class Executer : MonoBehaviour
 
     public void HaltControl()
     {
+        gameObject.SetActive(false);
+        currentPuzzle.Slots[lineNumber].ShowLineNumber();
         StopAllCoroutines();
     }
 
@@ -57,7 +58,11 @@ public class Executer : MonoBehaviour
             currentPuzzle.Slots[lineNumber].Block.Execute();
         }
         else
-            LogError($"Error Code 0: No Code Block Found. Line: {lineNumber}");
+        {
+            HaltControl();
+            ErrorLogger.instance.LogError("Error Code 0: No Code Block Found.", lineNumber);
+            lineNumber = 0;
+        }
 
         yield return new WaitForSeconds(1f);
         lineNumber++;
@@ -66,14 +71,6 @@ public class Executer : MonoBehaviour
             StartCoroutine(Execute());
         else
             OnEnd();
-    }
-
-    private void LogError(string errorMessage)
-    {
-        AudioManager.instance.PlaySFX(errorSFX);
-        OutputHandler.instance.ClearOutput();
-        OutputHandler.instance.ChangeTextColor(Color.red);
-        OutputHandler.instance.AddOutput(errorMessage);
     }
 
     private void OnEnd()

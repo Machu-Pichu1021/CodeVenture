@@ -15,4 +15,9 @@ public class Print : CodeBlock
     {
         argument = input;
     }
+
+    private void OnMouseDown()
+    {
+        UpdateArgument("");
+    }
 }

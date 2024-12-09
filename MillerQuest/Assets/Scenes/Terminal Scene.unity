@@ -501,7 +501,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lineNumber: 0
   winSFX: {fileID: 8300000, guid: 488a7ca540e557b4688f5ee2e4b6c20e, type: 3}
-  errorSFX: {fileID: 8300000, guid: 42fe2b24e6e25b84cbe7335359705345, type: 3}
   winScreen: {fileID: 980959201}
   loseScreen: {fileID: 1360480418}
 --- !u!1 &378140733
@@ -1044,6 +1043,51 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 504026489}
   m_CullTransparentMesh: 1
+--- !u!1 &508404386
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 508404388}
+  - component: {fileID: 508404387}
+  m_Layer: 0
+  m_Name: Error Logger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &508404387
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 508404386}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a17fdce18d37e7478b5f2710c8f0b5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  errorSFX: {fileID: 8300000, guid: 42fe2b24e6e25b84cbe7335359705345, type: 3}
+--- !u!4 &508404388
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 508404386}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &524675465
 GameObject:
   m_ObjectHideFlags: 0

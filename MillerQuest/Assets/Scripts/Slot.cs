@@ -5,7 +5,7 @@ using TMPro;
 
 public class Slot : MonoBehaviour
 {
-    private CodeBlock block;
+    [SerializeField] private CodeBlock block;
     public CodeBlock Block { get => block; private set => block = value; }
 
     [SerializeField] private TMP_Text lineNumberText;
