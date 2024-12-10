@@ -47,12 +47,16 @@ MonoBehaviour:
   puzzleName: Test Puzzle
   puzzleDescription: Hahaha funny test
   puzzleImage: {fileID: 0}
-  numLines: 2
+  numLines: 8
   blocks:
+  - {fileID: 2762014538294697896, guid: c31fda6977f84474cb5440ee451865b7, type: 3}
+  - {fileID: 2762014538294697896, guid: 85e9dd4b028e2fd4283a38f840f44b50, type: 3}
+  - {fileID: 2762014538294697896, guid: 5dc2af6d2e3409a4283605a163654bbc, type: 3}
+  - {fileID: 2762014538294697896, guid: f69024ab7f1978242a326505c53bf041, type: 3}
   - {fileID: 2762014538294697896, guid: bcfc37b566074644aaf17d4d203a246d, type: 3}
   - {fileID: 2762014538294697896, guid: bcfc37b566074644aaf17d4d203a246d, type: 3}
-  expectedOutput: 'sigma
-
-    balls
+  - {fileID: 2762014538294697896, guid: bcfc37b566074644aaf17d4d203a246d, type: 3}
+  - {fileID: 2762014538294697896, guid: bcfc37b566074644aaf17d4d203a246d, type: 3}
+  expectedOutput: '
 
 '

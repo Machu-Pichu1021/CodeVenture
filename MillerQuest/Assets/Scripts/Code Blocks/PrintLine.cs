@@ -8,16 +8,22 @@ public class PrintLine : CodeBlock
     
     public override void Execute()
     {
-        //Add variable checking later
-        if (argument[0] == '"' && argument[argument.Length - 1] == '"')
+        if (argument == "")
+            ErrorLogger.instance.LogError("Error Code 5: Missing Argument.");
+        else if (argument == "\"")
+            ErrorLogger.instance.LogError("Error Code 6: Unclosed String.");
+        else if (argument[0] == '"' && argument[argument.Length - 1] == '"')
         {
             string output = argument[1..(argument.Length - 1)];
             OutputHandler.instance.AddOutput(output + "\n");
         }
-        else
+        else if (VariableTracker.instance.TryGetValue(argument, out object value))
         {
-            ErrorLogger.instance.LogError("Error Code 1: Cannot Resolve Symbol '" + argument + "'.");
+            string output = value.ToString();
+            OutputHandler.instance.AddOutput(output);
         }
+        else
+            ErrorLogger.instance.LogError("Error Code 1: Cannot Resolve Symbol '" + argument + "'.");
 
     }
 

@@ -5,8 +5,10 @@ using UnityEngine;
 
 public class Executer : MonoBehaviour
 {
-    [SerializeField] private static int lineNumber = 0;
-    public static int LineNumber { get => lineNumber; private set => lineNumber = value; }
+    public static Executer instance;
+
+    [SerializeField] private int lineNumber = 0;
+    public int LineNumber { get => lineNumber; private set => lineNumber = value; }
 
     private PuzzleObject currentPuzzle;
 
@@ -16,6 +18,14 @@ public class Executer : MonoBehaviour
 
     [SerializeField] GameObject winScreen;
     [SerializeField] GameObject loseScreen;
+
+    private void Awake()
+    {
+        if (instance == null)
+            instance = this;
+        else
+            Destroy(gameObject);
+    }
 
     private void Start()
     {
@@ -44,6 +54,7 @@ public class Executer : MonoBehaviour
     public void HaltControl()
     {
         gameObject.SetActive(false);
+        lineNumber = 0;
         currentPuzzle.Slots[lineNumber].ShowLineNumber();
         StopAllCoroutines();
     }
@@ -59,11 +70,7 @@ public class Executer : MonoBehaviour
             currentPuzzle.Slots[lineNumber].Block.Execute();
         }
         else
-        {
-            HaltControl();
             ErrorLogger.instance.LogError("Error Code 0: No Code Block Found.");
-            lineNumber = 0;
-        }
 
         yield return new WaitForSeconds(1f);
         lineNumber++;
@@ -77,8 +84,8 @@ public class Executer : MonoBehaviour
     private void OnEnd()
     {
         currentPuzzle.Slots[lineNumber - 1].ShowLineNumber();
-        gameObject.SetActive(false);
         lineNumber = 0;
+        VariableTracker.instance.ClearVariables();
         if (currentPuzzle.checkSolution(OutputHandler.instance.Output))
         {
             MusicManager.instance.Stop();
@@ -86,8 +93,7 @@ public class Executer : MonoBehaviour
             winScreen.SetActive(true);
         }
         else
-        {
             loseScreen.SetActive(true);
-        }
+        gameObject.SetActive(false);
     }
 }

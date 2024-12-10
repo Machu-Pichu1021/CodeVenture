@@ -20,6 +20,8 @@ public class ErrorLogger : MonoBehaviour
         AudioManager.instance.PlaySFX(errorSFX);
         OutputHandler.instance.ClearOutput();
         OutputHandler.instance.ChangeTextColor(Color.red);
-        OutputHandler.instance.AddOutput(errorMessage + " Line Number: " + Executer.LineNumber);
+        OutputHandler.instance.AddOutput(errorMessage + " Line Number: " + (Executer.instance.LineNumber + 1));
+        Executer.instance.HaltControl();
+        VariableTracker.instance.ClearVariables();
     }
 }
