@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Variable : CodeBlock
+public abstract class AssignmentOperator : CodeBlock
 {
     [HideInInspector] public string variableName;
     [HideInInspector] public string value;
@@ -15,10 +15,5 @@ public abstract class Variable : CodeBlock
     public void UpdateValue(string value)
     {
         this.value = value;
-    }
-
-    public bool InvalidVariableName()
-    {
-        return variableName == "" || variableName.Contains('"') || ErrorLogger.instance.IsLiteral(variableName);
     }
 }

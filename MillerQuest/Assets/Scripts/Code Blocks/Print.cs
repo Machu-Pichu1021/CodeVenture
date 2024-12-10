@@ -10,7 +10,7 @@ public class Print : CodeBlock
     {
         if (argument == "")
             ErrorLogger.instance.LogError("Error Code 5: Missing Argument.");
-        else if (argument == "\"")
+        else if ((argument.Length - argument.Replace("\"", "").Length) % 2 == 1)
             ErrorLogger.instance.LogError("Error Code 6: Unclosed String.");
         else if (argument[0] == '"' && argument[argument.Length - 1] == '"')
         {

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8767837073710022085}
   - component: {fileID: 8767837073710022086}
   m_Layer: 0
-  m_Name: Puzzle 1-2
+  m_Name: Puzzle 1-3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44,16 +44,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c23b3a34bf0b814088c9fb88b0400b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  puzzleName: 'Level 1-2: Print vs Println'
-  puzzleDescription: As a counterpart to the println block, the print block does
-    NOT bring the cursor down after printing its argument. Use a combination of the
-    print and println blocks to produce the following output.
-  puzzleImage: {fileID: 21300000, guid: de5c12a5b0f330349ade58513b422f77, type: 3}
-  puzzleNum: 1
+  puzzleName: 'Level 1-3: Primitive Types'
+  puzzleDescription: There are four main primitive types. ints store integer values,
+    floats store decimal values, bools store true/false values, and strings hold
+    text values. Use the appropriate data type to print out the number 3.5 to the
+    console.
+  puzzleImage: {fileID: 21300000, guid: a1f677c5fddf6c642a372e9b4516ddda, type: 3}
+  puzzleNum: 2
   numLines: 2
   blocks:
-  - {fileID: 2762014538294697896, guid: 5dd78a8e280ffe1428c54df0fc56cf27, type: 3}
+  - {fileID: 2762014538294697896, guid: c31fda6977f84474cb5440ee451865b7, type: 3}
+  - {fileID: 2762014538294697896, guid: 85e9dd4b028e2fd4283a38f840f44b50, type: 3}
+  - {fileID: 2762014538294697896, guid: 5dc2af6d2e3409a4283605a163654bbc, type: 3}
+  - {fileID: 2762014538294697896, guid: f69024ab7f1978242a326505c53bf041, type: 3}
   - {fileID: 2762014538294697896, guid: bcfc37b566074644aaf17d4d203a246d, type: 3}
-  expectedOutput: 'Printing lines is so fun!
+  expectedOutput: '3.5
 
 '

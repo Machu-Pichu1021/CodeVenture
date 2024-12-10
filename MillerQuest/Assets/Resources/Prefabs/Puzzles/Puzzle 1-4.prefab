@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8767837073710022085}
   - component: {fileID: 8767837073710022086}
   m_Layer: 0
-  m_Name: Puzzle 1-2
+  m_Name: Puzzle 1-4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44,16 +44,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c23b3a34bf0b814088c9fb88b0400b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  puzzleName: 'Level 1-2: Print vs Println'
-  puzzleDescription: As a counterpart to the println block, the print block does
-    NOT bring the cursor down after printing its argument. Use a combination of the
-    print and println blocks to produce the following output.
-  puzzleImage: {fileID: 21300000, guid: de5c12a5b0f330349ade58513b422f77, type: 3}
-  puzzleNum: 1
-  numLines: 2
+  puzzleName: 'Level 1-4: Math...'
+  puzzleDescription: There are 5 main math operators. 4 of them are pretty straightforward,
+    but that % is actually the modulo, or remainder operator. It divides left by
+    right and outputs the remainder. Use a combination of ANY 3 operators to output
+    the number 12.
+  puzzleImage: {fileID: 21300000, guid: 14f7ebe6d33e2b7478cef865a5a33b54, type: 3}
+  puzzleNum: 3
+  numLines: 5
   blocks:
-  - {fileID: 2762014538294697896, guid: 5dd78a8e280ffe1428c54df0fc56cf27, type: 3}
+  - {fileID: 2762014538294697896, guid: 85e9dd4b028e2fd4283a38f840f44b50, type: 3}
+  - {fileID: 2762014538294697896, guid: d48987fe2a29bc946941a76f3fb4bca6, type: 3}
+  - {fileID: 2762014538294697896, guid: 9ee71139f8592c440aaf1b6986afd8c1, type: 3}
+  - {fileID: 2762014538294697896, guid: fa07fa7dc54356249a4ff0e58604a525, type: 3}
+  - {fileID: 2762014538294697896, guid: 48edbe3f50799f84bad79fd30b177cde, type: 3}
+  - {fileID: 2762014538294697896, guid: b6edd0665e2cd7049861496b5eb49789, type: 3}
   - {fileID: 2762014538294697896, guid: bcfc37b566074644aaf17d4d203a246d, type: 3}
-  expectedOutput: 'Printing lines is so fun!
+  expectedOutput: '12
 
 '

@@ -24,6 +24,11 @@ public class VariableTracker : MonoBehaviour
             ErrorLogger.instance.LogError("Error Code 4: Variable " + varName + " has already been assigned to.");
     }
 
+    public void UpdateVariable(string varName, object value)
+    {
+        variables[varName] = value;
+    }
+
     public bool TryGetValue(string varName, out object value)
     {
         value = null;

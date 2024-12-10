@@ -9,6 +9,9 @@ public class PuzzleObject : MonoBehaviour
     [SerializeField] [TextArea] private string puzzleDescription;
     [SerializeField] private Sprite puzzleImage;
 
+    [SerializeField] private int puzzleNum;
+    public int PuzzleNum { get => puzzleNum; private set => puzzleNum = value; }
+
     [SerializeField] private int numLines;
     public int NumLines { get => numLines; private set => numLines = value; }
 
@@ -26,8 +29,6 @@ public class PuzzleObject : MonoBehaviour
     {
         DontDestroyOnLoad(gameObject);
         slotPrefab = Resources.Load<GameObject>("Prefabs/Slot Prefab");
-        //Delete later
-        LoadPuzzle();
     }
 
     private void OnLevelWasLoaded(int level)

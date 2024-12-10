@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8767837073710022085}
   - component: {fileID: 8767837073710022086}
   m_Layer: 0
-  m_Name: Puzzle 1-2
+  m_Name: Puzzle 2-2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44,16 +44,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c23b3a34bf0b814088c9fb88b0400b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  puzzleName: 'Level 1-2: Print vs Println'
-  puzzleDescription: As a counterpart to the println block, the print block does
-    NOT bring the cursor down after printing its argument. Use a combination of the
-    print and println blocks to produce the following output.
-  puzzleImage: {fileID: 21300000, guid: de5c12a5b0f330349ade58513b422f77, type: 3}
-  puzzleNum: 1
+  puzzleName: 'Level 2-2: Major Returnage'
+  puzzleDescription: Methods have return types, which tell you what kind of value
+    you should expect to get back when calling them. In the following code segment,
+    identify the return type of the method and the return value if the value of the
+    parameter n is 7. Put your answers on separate lines, with the return type printed
+    first.
+  puzzleImage: {fileID: 21300000, guid: d1e1f7a26571b6f4dac1b0f1d3bd5b99, type: 3}
+  puzzleNum: 6
   numLines: 2
   blocks:
-  - {fileID: 2762014538294697896, guid: 5dd78a8e280ffe1428c54df0fc56cf27, type: 3}
   - {fileID: 2762014538294697896, guid: bcfc37b566074644aaf17d4d203a246d, type: 3}
-  expectedOutput: 'Printing lines is so fun!
+  - {fileID: 2762014538294697896, guid: bcfc37b566074644aaf17d4d203a246d, type: 3}
+  expectedOutput: 'int
+
+    20
 
 '

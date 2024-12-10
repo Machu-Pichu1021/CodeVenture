@@ -24,4 +24,9 @@ public class ErrorLogger : MonoBehaviour
         Executer.instance.HaltControl();
         VariableTracker.instance.ClearVariables();
     }
+
+    public bool IsLiteral(string v)
+    {
+        return float.TryParse(v, out _) || bool.TryParse(v, out _) || (v.Length > 1 && v[0] == '"' && v[v.Length - 1] == '"');
+    }
 }

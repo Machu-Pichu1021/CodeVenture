@@ -90,6 +90,8 @@ public class Executer : MonoBehaviour
         {
             MusicManager.instance.Stop();
             AudioManager.instance.PlaySFX(winSFX);
+            StatSaver.instance.CompleteLevel(currentPuzzle.PuzzleNum);
+            loseScreen.SetActive(false);
             winScreen.SetActive(true);
         }
         else
