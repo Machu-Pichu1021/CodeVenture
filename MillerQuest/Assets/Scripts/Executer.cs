@@ -54,8 +54,8 @@ public class Executer : MonoBehaviour
     public void HaltControl()
     {
         gameObject.SetActive(false);
-        lineNumber = 0;
         currentPuzzle.Slots[lineNumber].ShowLineNumber();
+        lineNumber = 0;
         StopAllCoroutines();
     }
 
