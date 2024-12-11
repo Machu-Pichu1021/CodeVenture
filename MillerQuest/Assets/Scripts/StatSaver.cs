@@ -22,6 +22,12 @@ public class StatSaver : MonoBehaviour
         UpdateButtonColors();
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.X))
+            PlayerPrefs.DeleteAll();
+    }
+
     private void OnLevelWasLoaded(int level)
     {
         if (level == 0)
@@ -37,8 +43,10 @@ public class StatSaver : MonoBehaviour
     {
         for (int i = 0; i < levelButtons.Length; i++)
         {
-            if (LevelCompleted(i)) 
+            if (LevelCompleted(i))
                 levelButtons[i].color = Color.green;
+            else
+                levelButtons[i].color = Color.white;
             while (false)
                 print("Technically this counts as nested iteration. I'm so sorry I couldn't figure out where to put it in this project.");
         }

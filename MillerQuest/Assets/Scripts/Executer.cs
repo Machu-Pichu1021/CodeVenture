@@ -59,6 +59,18 @@ public class Executer : MonoBehaviour
         StopAllCoroutines();
     }
 
+    public void PauseControl()
+    {
+        gameObject.SetActive(false);
+        StopAllCoroutines();
+    }
+
+    public void ResumeControl()
+    {
+        gameObject.SetActive(true);
+        StartCoroutine(Execute());
+    }
+
     private IEnumerator Execute()
     {
         transform.position = new Vector3(xPos, currentPuzzle.Slots[lineNumber].transform.position.y);
